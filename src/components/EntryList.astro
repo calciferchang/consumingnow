@@ -1,1 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import WeeklyDate from "WeeklyDate.astro"
+
 const posts = (await getCollection("weekly")).sort(
+ (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<ul>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/weekly/${post.id}/`}>
+        <h4 class="title">{post.data.date}</h4>
+        <p><WeeklyDate date={post.data.date} /></p>
+</a>
+</li>
+))
+}
+</ul>
