@@ -1,10 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-<<<<<<< HEAD
 import FormattedDate from "../components/FormattedDate.astro";
-=======
-import WeeklyDate from "WeeklyDate.astro";
->>>>>>> main
 
 const posts = (await getCollection("weekly")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -18,11 +14,7 @@ const posts = (await getCollection("weekly")).sort(
         <a href={`/weekly/${post.id}/`}>
           <h4 class="title">{post.data.date}</h4>
           <p>
-<<<<<<< HEAD
             <FormattedDate date={post.data.date} />
-=======
-            <WeeklyDate date={post.data.date} />
->>>>>>> main
           </p>
         </a>
       </li>
