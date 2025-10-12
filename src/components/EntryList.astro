@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import WeeklyDate from "WeeklyDate.astro"
+import FormattedDate from "../components/FormattedDate.astro";
 
 const posts = (await getCollection("weekly")).sort(
- (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
@@ -12,10 +12,12 @@ const posts = (await getCollection("weekly")).sort(
     posts.map((post) => (
       <li>
         <a href={`/weekly/${post.id}/`}>
-        <h4 class="title">{post.data.date}</h4>
-        <p><WeeklyDate date={post.data.date} /></p>
-</a>
-</li>
-))
-}
+          <h4 class="title">{post.data.date}</h4>
+          <p>
+            <FormattedDate date={post.data.date} />
+          </p>
+        </a>
+      </li>
+    ))
+  }
 </ul>
