@@ -1,7 +1,5 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import EntryList from "../components/EntryList.astro";
 ---
@@ -10,12 +8,95 @@ import EntryList from "../components/EntryList.astro";
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      #main-container {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        max-width: 20rem;
+      }
+      #landing-card {
+        display: flex;
+        padding: 16px 20px 4px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border: 1px dashed #000;
+      }
+
+      #landing-card > * {
+        align-self: stretch;
+        margin-bottom: 12px;
+      }
+    </style>
   </head>
+
   <body>
-    <Header />
-    <main>
-      <EntryList />
-    </main>
-    <Footer />
+    <div id="main-container">
+      <div id="landing-card">
+        <p>
+          consuming.now is the personal website of
+          <strong>calcifer chang</strong>.
+        </p>
+        <div>
+          <p>currently, it consists of:</p>
+          <ul>
+            <li>a <a href="" class="page-link">landing page</a></li>
+          </ul>
+        </div>
+        <div>
+          <p>it will eventually be home to more interesting things such as:</p>
+          <ul>
+            <li>
+              an <a href="#" class="page-link disabled">about me</a> (hopefully interesting)
+            </li>
+            <li>
+              <a href="#" class="page-link disabled"
+                >thoughts <span class="ampersand">&</span> writings</a
+              > (see above)
+            </li>
+            <li>a living archive of work</li>
+            <li>
+              a <a href="#" class="page-link disabled">colophon</a> (interesting
+              to me)
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p>
+            while the information that would be contained within these pages is
+            technically available scattered across the internet, those curious
+            can find it more highly concentrated in these locations:
+          </p>
+          <ul>
+            <li>
+              <a href="https://github.com/calciferchang" class="external-link"
+                >github</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.are.na/calcifer-chang/index"
+                class="external-link">are.na</a
+              >
+            </li>
+            <li>
+              <a href="mailto:c@lcifer.com" class="external-link"
+                >c@lcifer.com</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 4px; font-size: .8rem; opacity: .8;">
+        last updated on 2025–10–22
+      </p>
+    </div>
   </body>
 </html>
