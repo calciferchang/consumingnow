@@ -92,7 +92,8 @@ a {
 }
 
 .ampersand {
-  font-family: "adobe-garamond-pro", serif;
+  font-family: "adobe-aldine", serif;
+  font-style: italic;
   font-size: calc(1.05 * var(--font-size));
 }
 
